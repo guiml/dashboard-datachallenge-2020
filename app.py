@@ -26,10 +26,11 @@ server = app.server
 
 
 #ACCESS S3
-[AWSID] = '[AWSID]'
+##KEYS DEACTIVATED
+[AWSID] = '[YOUR AWS ID]'
 [YOUR AWS SECRET] = '[YOUR AWS SECRET]'
 client = boto3.client('s3', aws_access_key_id=[AWSID], [YOUR AWS SECRET]_access_key=[YOUR AWS SECRET])
-ABC = '[BUCKETNAME]'
+ABC = '[BUCKET NAME]'
 
 
 
