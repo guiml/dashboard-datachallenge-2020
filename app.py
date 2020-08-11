@@ -18,7 +18,7 @@ warnings.filterwarnings("ignore")
 # Initialize the app
 app = dash.Dash(__name__)
 app.config.suppress_callback_exceptions = True
-app.title = 'Displacement visualization tool'
+app.title = 'Covid-19 Impact Dashboard'
 server = app.server
 
 
