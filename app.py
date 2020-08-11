@@ -27,10 +27,10 @@ server = app.server
 
 #ACCESS S3
 ##KEYS DEACTIVATED
-aws_id = 'AKIAYCZC672RXSY5QIE7'
-aws_secret = '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'
+aws_id = XYZ
+aws_secret = ABC
 client = boto3.client('s3', aws_access_key_id=aws_id, aws_secret_access_key=aws_secret)
-bucket_name = 'jbsdc-output'
+bucket_name = ABC
 
 
 
