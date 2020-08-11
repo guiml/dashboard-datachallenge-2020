@@ -45,14 +45,25 @@ pred_dynamic_OilPrices = results_OilPrices.get_prediction(start=pd.to_datetime('
 pred_dynamic_ci_OilPrices = pred_dynamic_OilPrices.conf_int()
 
 ## DEVELOP CHART
-OilPrices = px.line(df_OilPrices, x=df_OilPrices.index, y=df_OilPrices['price'])
+OilPrices = px.line(df_OilPrices, x=y_OilPrices.index, y=y_OilPrices['price'])
 OilPrices.update_layout({'height': 200, 'width': 400})
 
+fig = go.Figure()
+fig.add_trace(go.Scatter(x=y_OilPrices.index, y=y_OilPrices['price'], mode='lines'))
+fig.add_trace(go.Scatter(x=pred_dynamic_ci_OilPrices.index, y=pred_dynamic_OilPrices.predicted_mean.values, mode='lines'))
+
+fig.add_trace(go.Scatter(x=pred_dynamic_ci_OilPrices.index, y=pred_dynamic_ci_OilPrices.iloc[:, 0], fill='tonexty', mode='lines', line_color='gray')) # fill down to xaxis
+fig.add_trace(go.Scatter(x=pred_dynamic_ci_OilPrices.index, y=pred_dynamic_ci_OilPrices.iloc[:, 1], fill='tonexty', mode='lines', line_color='gray')) # fill to trace0 y
+
+
+fig.update_layout({'height': 300, 'width': 400})
+fig.update_layout(showlegend=False)
+
 ## LAYOUT DESIGN
-app.layout = html.Div(children=[dcc.Graph(figure=OilPrices)])
+app.layout = html.Div(children=[dcc.Graph(figure=fig)])
 
 
 ## CALLBACKS (to update the charts)
 
 if __name__ == '__main__':
-    app.run_server(debug=False)
+    app.run_server(debug=True)
