@@ -34,6 +34,16 @@ y_OilPrices = df_OilPrices.resample('MS').mean()
 y_OilPrices.fillna(y_OilPrices.bfill())
 y_OilPrices = y_OilPrices['2015':]
 
+## CALCULATION
+mod = sm.tsa.statespace.SARIMAX(y_OilPrices,
+                            order=(0, 1, 1),
+                            seasonal_order=(1, 1, 1, 12),
+                            enforce_stationarity=False,
+                            enforce_invertibility=False)
+results_OilPrices = mod.fit()
+pred_dynamic_OilPrices = results_OilPrices.get_prediction(start=pd.to_datetime('2020-01-01'), dynamic=True, full_results=True)
+pred_dynamic_ci_OilPrices = pred_dynamic_OilPrices.conf_int()
+
 ## DEVELOP CHART
 OilPrices = px.line(df_OilPrices, x=df_OilPrices.index, y=df_OilPrices['price'])
 OilPrices.update_layout({'height': 200, 'width': 400})
