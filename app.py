@@ -31,7 +31,8 @@ df_OilPrices.drop(['date'], axis = 1, inplace= True)
 y_OilPrices = df_OilPrices.resample('MS').mean()
 y_OilPrices.fillna(y_OilPrices.bfill())
 y_OilPrices = y_OilPrices['2015':]
-
+OilPrices = px.line(df_OilPrices, x=df_OilPrices.index, y=df_OilPrices['price'])
+OilPrices.update_layout({'height': 200, 'width': 400})
 
 ## LAYOUT DESIGN
 app.layout = html.Div(children=[html.P('Hello')])
