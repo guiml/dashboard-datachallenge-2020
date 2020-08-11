@@ -26,10 +26,11 @@ server = app.server
 
 
 #ACCESS S3
-[AWSID] = 'AKIAYCZC672RXSY5QIE7'
-[YOUR AWS SECRET] = 'dl+/p5OU3PjG6BrNFsMa6O/Cw+dek3Dxr/inJ2YV'
+##KEYS DEACTIVATED
+[AWSID] = '[YOUR AWS ID]'
+[YOUR AWS SECRET] = '[YOUR AWS SECRET]'
 client = boto3.client('s3', aws_access_key_id=[AWSID], [YOUR AWS SECRET]_access_key=[YOUR AWS SECRET])
-ABC = 'jbsdc-output'
+ABC = '[BUCKET NAME]'
 
 
 
