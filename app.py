@@ -26,10 +26,11 @@ server = app.server
 
 
 #ACCESS S3
- aws_id = 'AKIAYCZC672RXSY5QIE7'
- aws_secret= 'dl+/p5OU3PjG6BrNFsMa6O/Cw+dek3Dxr/inJ2YV'
+##KEYS DEACTIVATED
+ aws_id = '[YOUR AWS ID]'
+ aws_secret= '[YOUR AWS SECRET]'
 client = boto3.client('s3', aws_access_key_id= aws_id, [YOUR AWS SECRET]_access_key=[YOUR AWS SECRET])
- bucket_name= 'jbsdc-output'
+ bucket_name= '[BUCKET NAME]'
 
 
 
