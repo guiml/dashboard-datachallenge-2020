@@ -4,7 +4,7 @@ setup(
     name='src',
     packages=find_packages(),
     version='0.1.0',
-    description='CEQR Tool dashboard',
-    author='NYU CUSP Students',
+    description='Covid-19 dashboard for datachallenge',
+    author='Guilherme Louzada',
     license='MIT',
 )
