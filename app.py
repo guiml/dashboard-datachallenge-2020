@@ -26,6 +26,7 @@ server = app.server
 
 
 #ACCESS S3
+##KEYS DEACTIVATED
 aws_id = 'AKIAYCZC672RTB5662NO'
 aws_secret = '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'
 client = boto3.client('s3', aws_access_key_id=aws_id, aws_secret_access_key=aws_secret)
