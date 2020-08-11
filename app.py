@@ -27,16 +27,16 @@ server = app.server
 
 #ACCESS S3
 ##KEYS DEACTIVATED
-[AWSID] = '[YOUR AWS ID]'
-[YOUR AWS SECRET] = '[YOUR AWS SECRET]'
-client = boto3.client('s3', aws_access_key_id=[AWSID], [YOUR AWS SECRET]_access_key=[YOUR AWS SECRET])
-ABC = '[BUCKET NAME]'
+aws_id = 'AKIAYCZC672RXSY5QIE7'
+aws_secret = 'dl+/p5OU3PjG6BrNFsMa6O/Cw+dek3Dxr/inJ2YV'
+client = boto3.client('s3', aws_access_key_id=aws_id, aws_secret_access_key=aws_secret)
+bucket_name = 'jbsdc-output'
 
 
 
 ## CORN PRICES
 object_key = 'Corn Prices - 59 Year Historical Chart.csv'
-csv_obj = client.get_object(Bucket=ABC, Key=object_key)
+csv_obj = client.get_object(Bucket=bucket_name, Key=object_key)
 body = csv_obj['Body']
 csv_string = body.read().decode('utf-8')
 df_CornPrices = pd.read_csv(StringIO(csv_string))
@@ -75,7 +75,7 @@ csv_stringCornPrices = "data:text/csv;charset=utf-8," + urllib.parse.quote(csv_s
 
 ## OIL PRICES
 object_key = 'Crude Oil Prices: Daily Closing Values.csv'
-csv_obj = client.get_object(Bucket=ABC, Key=object_key)
+csv_obj = client.get_object(Bucket=bucket_name, Key=object_key)
 body = csv_obj['Body']
 csv_string = body.read().decode('utf-8')
 df_OilPrices = pd.read_csv(StringIO(csv_string))
@@ -114,7 +114,7 @@ csv_stringOilPrices = "data:text/csv;charset=utf-8," + urllib.parse.quote(csv_st
 
 ## SOY PRICES
 object_key = 'Soybean Prices - 45 Year Historical Chart.csv'
-csv_obj = client.get_object(Bucket=ABC, Key=object_key)
+csv_obj = client.get_object(Bucket=bucket_name, Key=object_key)
 body = csv_obj['Body']
 csv_string = body.read().decode('utf-8')
 df_SoyPrices = pd.read_csv(StringIO(csv_string))
@@ -153,7 +153,7 @@ csv_stringSoyPrices = "data:text/csv;charset=utf-8," + urllib.parse.quote(csv_st
 
 ## RICE PRICES
 object_key = 'CBOT Rough Rice Futures #1 (RR1).csv'
-csv_obj = client.get_object(Bucket=ABC, Key=object_key)
+csv_obj = client.get_object(Bucket=bucket_name, Key=object_key)
 body = csv_obj['Body']
 csv_string = body.read().decode('utf-8')
 df_RicePrices = pd.read_csv(StringIO(csv_string))
@@ -192,7 +192,7 @@ csv_stringRicePrices = "data:text/csv;charset=utf-8," + urllib.parse.quote(csv_s
 
 ## BROILER PRODUCTION
 object_key = 'SlaughterCounts-Broilers.csv'
-csv_obj = client.get_object(Bucket=ABC, Key=object_key)
+csv_obj = client.get_object(Bucket=bucket_name, Key=object_key)
 body = csv_obj['Body']
 csv_string = body.read().decode('utf-8')
 df_BroilerProd = pd.read_csv(StringIO(csv_string))
@@ -229,7 +229,7 @@ csv_stringBroilerProd = "data:text/csv;charset=utf-8," + urllib.parse.quote(csv_
 
 ## OTHER CHICKENS PRODUCTION
 object_key = 'SlaughterCounts-Other chickens.csv'
-csv_obj = client.get_object(Bucket=ABC, Key=object_key)
+csv_obj = client.get_object(Bucket=bucket_name, Key=object_key)
 body = csv_obj['Body']
 csv_string = body.read().decode('utf-8')
 df_OtherChickProd = pd.read_csv(StringIO(csv_string))
@@ -267,7 +267,7 @@ csv_stringOtherChickProd = "data:text/csv;charset=utf-8," + urllib.parse.quote(c
 
 ## TURKEY PRODUCTION
 object_key = 'SlaughterCounts-Turkeys.csv'
-csv_obj = client.get_object(Bucket=ABC, Key=object_key)
+csv_obj = client.get_object(Bucket=bucket_name, Key=object_key)
 body = csv_obj['Body']
 csv_string = body.read().decode('utf-8')
 df_TurkeyProd = pd.read_csv(StringIO(csv_string))
