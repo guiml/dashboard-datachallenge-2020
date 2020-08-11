@@ -4,14 +4,9 @@ import dash_html_components as html
 import dash_bootstrap_components as dbc
 import plotly.graph_objs as go
 import plotly.express as px
+
 import pandas as pd
 import statsmodels.api as sm
-from statsmodels.graphics.tsaplots import plot_acf
-from statsmodels.graphics.tsaplots import plot_pacf
-import base64
-import itertools
-import warnings
-import io
 
 
 # Initialize the app
@@ -36,14 +31,14 @@ Broiler = pd.read_csv('data/SlaughterCounts-Broilers.csv')
 
 
 ###APP
-df_OilPrices = pd.read_csv('data/Crude Oil Prices_ Daily Closing Values.csv')
-df_OilPrices.dropna(inplace=True)
-df_OilPrices['date'] = pd.to_datetime(df_OilPrices['date'], utc=False)
-df_OilPrices.index = df_OilPrices['date']
-df_OilPrices.drop(['date'], axis = 1, inplace= True)
-y_OilPrices = df_OilPrices.resample('MS').mean()
-y_OilPrices.fillna(y_OilPrices.bfill())
-y_OilPrices = y_OilPrices['2015':]
+#df_OilPrices = pd.read_csv('data/Crude Oil Prices_ Daily Closing Values.csv')
+#df_OilPrices.dropna(inplace=True)
+#df_OilPrices['date'] = pd.to_datetime(df_OilPrices['date'], utc=False)
+#df_OilPrices.index = df_OilPrices['date']
+#df_OilPrices.drop(['date'], axis = 1, inplace= True)
+#y_OilPrices = df_OilPrices.resample('MS').mean()
+#y_OilPrices.fillna(y_OilPrices.bfill())
+#y_OilPrices = y_OilPrices['2015':]
 #mod = sm.tsa.statespace.SARIMAX(y_OilPrices,
 #                            order=(0, 1, 1),
 #                            seasonal_order=(1, 1, 1, 12),
@@ -53,9 +48,10 @@ y_OilPrices = y_OilPrices['2015':]
 #pred_dynamic_OilPrices = results_OilPrices.get_prediction(start=pd.to_datetime('2020-01-01'), dynamic=True, full_results=True)
 #pred_dynamic_ci_OilPrices = pred_dynamic_OilPrices.conf_int()
 
-OilPrices = px.line(df_OilPrices, x=df_OilPrices.index, y=df_OilPrices['price'])
-OilPrices.update_layout({'height': 200, 'width': 400})
+#OilPrices = px.line(df_OilPrices, x=df_OilPrices.index, y=df_OilPrices['price'])
+#OilPrices.update_layout({'height': 200, 'width': 400})
 
+#dcc.Graph(figure=OilPrices)
 
 
 
@@ -63,7 +59,7 @@ OilPrices.update_layout({'height': 200, 'width': 400})
 
 ## LAYOUT DESIGN
 app.layout = html.Div(
-    children=[dcc.Graph(figure=OilPrices)])
+    children=[html.P('Hello World')])
 
 
 
