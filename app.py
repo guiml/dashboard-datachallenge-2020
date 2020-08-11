@@ -51,14 +51,25 @@ OilPrices.update_layout({'height': 200, 'width': 400})
 fig = go.Figure()
 fig.add_trace(go.Scatter(x=y_OilPrices.index, y=y_OilPrices['price'], mode='lines'))
 fig.add_trace(go.Scatter(x=pred_dynamic_ci_OilPrices.index, y=pred_dynamic_OilPrices.predicted_mean.values, mode='lines'))
-fig.add_shape(dict(type="line", x0=pd.to_datetime('2020-02-01'), y0=0, x1=pd.to_datetime('2020-03-01'), y1=pred_dynamic_ci_OilPrices.iloc[:, 1].values.max(), line=dict(color="Red", width=3  )))
+fig.add_shape(dict(type="line", x0=pd.to_datetime('2020-02-01'), y0=0, x1=pd.to_datetime('2020-02-01'), y1=pred_dynamic_ci_OilPrices.iloc[:, 1].values.max(), line=dict(color="Red", width=3  )))
 fig.add_trace(go.Scatter(x=pred_dynamic_ci_OilPrices.index, y=pred_dynamic_ci_OilPrices.iloc[:, 0], fill='tonexty', mode='lines', line_color='#d4d3d2')) # fill down to xaxis
 fig.add_trace(go.Scatter(x=pred_dynamic_ci_OilPrices.index, y=pred_dynamic_ci_OilPrices.iloc[:, 1], fill='tonexty', mode='lines', line_color='#d4d3d2')) # fill to trace0 y
 fig.update_layout(showlegend=False)
 fig.update_layout(autosize=False, width=400, height=200, margin=dict(l=10, r=10, b=10, t=10, pad=1))
-## LAYOUT DESIGN
-app.layout = html.Div(children=[dcc.Graph(figure=fig)])
 
+
+
+## LAYOUT DESIGN
+#app.layout = html.Div(children=[dcc.Graph(figure=fig)])
+
+app.layout = html.Div(className="body",
+    children=[
+        html.H2("Covid-19 impact dashboard"), 
+        html.Div(
+        children=[
+            html.Div(className="row")
+        ])
+    ])
 
 ## CALLBACKS (to update the charts)
 
