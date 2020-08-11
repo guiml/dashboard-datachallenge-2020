@@ -21,10 +21,17 @@ server = app.server
 
 
 ### DATA
-Oil = pd.read_csv('data/Crude Oil Prices_ Daily Closing Values.csv')
-Broiler = pd.read_csv('data/SlaughterCounts-Broilers.csv')
+df_OilPrices = pd.read_csv('data/Crude Oil Prices_ Daily Closing Values.csv')
 
 ## APPLICATION START
+df_OilPrices.dropna(inplace=True)
+df_OilPrices['date'] = pd.to_datetime(df_OilPrices['date'], utc=False)
+df_OilPrices.index = df_OilPrices['date']
+df_OilPrices.drop(['date'], axis = 1, inplace= True)
+y_OilPrices = df_OilPrices.resample('MS').mean()
+y_OilPrices.fillna(y_OilPrices.bfill())
+y_OilPrices = y_OilPrices['2015':]
+
 
 ## LAYOUT DESIGN
 app.layout = html.Div(children=[html.P('Hello')])
