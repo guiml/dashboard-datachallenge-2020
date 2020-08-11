@@ -1,7 +1,7 @@
 ﻿body {
     margin:0;
     padding:0;
-    background-color: #272727;
+    background-color: #ffffff;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -11,13 +11,13 @@
   .left {
     width: 25%;
     height: 600px;
-    background-color: #272727;
+    background-color: #ffffff;
     text-align: center
   }
   
   .right {
     width: 75%;
-    background-color: white;
+    background-color: ffffff;
     text-align: center
   }
 
