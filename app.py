@@ -6,8 +6,6 @@ import plotly.graph_objs as go
 import plotly.express as px
 
 import pandas as pd
-import matplotlib
-import matplotlib.pyplot as plt
 import statsmodels.api as sm
 from statsmodels.graphics.tsaplots import plot_acf
 from statsmodels.graphics.tsaplots import plot_pacf
