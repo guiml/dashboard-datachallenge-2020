@@ -30,7 +30,7 @@ server = app.server
 ## APPLICATION START
 
 ## LAYOUT DESIGN
-app.layout = html.Div(html.P('Hello World')])
+app.layout = html.Div(children=[html.P('Redhook')])
 
 
 ## CALLBACKS (to update the charts)
