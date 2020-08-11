@@ -22,6 +22,9 @@ app.title = 'Covid-19 Impact Dashboard'
 server = app.server
 
 
+### STYLES
+styleH3D = {'color':'#a60f0f'}
+
 ### DATA
 df_OilPrices = pd.read_csv('data/Crude Oil Prices_ Daily Closing Values.csv')
 
@@ -55,7 +58,7 @@ fig.add_shape(dict(type="line", x0=pd.to_datetime('2020-02-01'), y0=0, x1=pd.to_
 fig.add_trace(go.Scatter(x=pred_dynamic_ci_OilPrices.index, y=pred_dynamic_ci_OilPrices.iloc[:, 0], fill='tonexty', mode='lines', line_color='#d4d3d2')) # fill down to xaxis
 fig.add_trace(go.Scatter(x=pred_dynamic_ci_OilPrices.index, y=pred_dynamic_ci_OilPrices.iloc[:, 1], fill='tonexty', mode='lines', line_color='#d4d3d2')) # fill to trace0 y
 fig.update_layout(showlegend=False)
-fig.update_layout(autosize=False, width=400, height=200, margin=dict(l=10, r=10, b=10, t=10, pad=1))
+fig.update_layout(autosize=False, width=300, height=150, margin=dict(l=10, r=10, b=10, t=10, pad=1))
 
 
 
@@ -65,9 +68,84 @@ fig.update_layout(autosize=False, width=400, height=200, margin=dict(l=10, r=10,
 app.layout = html.Div(className="body",
     children=[
         html.H2("Covid-19 impact dashboard"), 
-        html.Div(
+        html.Div(className="row",
         children=[
-            html.Div(className="row")
+            html.Div(className="columnleft",
+            children=[
+                html.H3("Demand impact", style=styleH3D),
+                html.Table(className="center",
+                    children=[
+                        html.Tr(
+                            children=[
+                                html.Td(
+                                    children=[
+                                        html.P("Oil Prices"),
+                                        dcc.Graph(figure=fig)
+                                    ]
+                                ),
+                                html.Td(
+                                    children=[
+                                        html.P("Corn Prices"),
+                                        dcc.Graph(figure=fig)
+                                    ]
+                                )
+                            ]
+                        ),
+                        html.Tr(
+                            children=[
+                                html.Td(
+                                    children=[
+                                        html.P("Soy bean prices"),
+                                        dcc.Graph(figure=fig)
+                                    ]
+                                ),
+                                html.Td(
+                                    children=[
+                                        html.P("Rice prices"),
+                                        dcc.Graph(figure=fig)
+                                    ]
+                                )
+                            ]                            
+                        )
+                    ]
+                )
+            ]),
+            html.Div(className="columnright",
+            children=[
+                html.H3("Supply impact"),
+                html.Table(
+                    children=[
+                        html.Tr(
+                            children=[
+                                html.Td(
+                                    children=[
+                                        html.P("a")
+                                    ]
+                                ),
+                                html.Td(
+                                    children=[
+                                        html.P("b")
+                                    ]
+                                )
+                            ]
+                        ),
+                        html.Tr(
+                            children=[
+                                html.Td(
+                                    children=[
+                                        html.P("c")
+                                    ]
+                                ),
+                                html.Td(
+                                    children=[
+                                        html.P("d")
+                                    ]
+                                )
+                            ]                            
+                        )
+                    ]
+                )
+            ])            
         ])
     ])
 
