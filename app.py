@@ -14,6 +14,7 @@ import numpy as np
 import statsmodels.api as sm
 import warnings
 warnings.filterwarnings("ignore")
+import boto3
 
 # Initialize the app
 app = dash.Dash(__name__)
