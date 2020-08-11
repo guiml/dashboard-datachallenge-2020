@@ -20,16 +20,14 @@ app.title = 'Displacement visualization tool'
 server = app.server
 
 
-### STYLES
-
-
-## OPEN GEOJSON
-
+### DATA
+Oil = pd.read_csv('data/Crude Oil Prices_ Daily Closing Values.csv')
+Broiler = pd.read_csv('data/SlaughterCounts-Broilers.csv')
 
 ## APPLICATION START
 
 ## LAYOUT DESIGN
-app.layout = html.Div(children=[html.P('Redhook')])
+app.layout = html.Div(children=[html.P('Hello')])
 
 
 ## CALLBACKS (to update the charts)
