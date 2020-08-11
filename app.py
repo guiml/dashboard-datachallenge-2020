@@ -12,6 +12,8 @@ import datetime as dt
 from datetime import datetime, timedelta
 import numpy as np
 import statsmodels.api as sm
+import warnings
+warnings.filterwarnings("ignore")
 
 # Initialize the app
 app = dash.Dash(__name__)
