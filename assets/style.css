@@ -5,19 +5,20 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.column {
-    float: left;
-  }
-  .left {
-    width: 25%;
-    height: 600px;
-    background-color: #ffffff;
-    text-align: center
-  }
-  
-  .right {
-    width: 75%;
-    background-color: ffffff;
-    text-align: center
-  }
 
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 500px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
