@@ -23,7 +23,6 @@ server = app.server
 ### STYLES
 
 
-
 ## OPEN GEOJSON
 
 
@@ -34,7 +33,6 @@ app.layout = html.Div(children=[html.P('Redhook')])
 
 
 ## CALLBACKS (to update the charts)
-
 
 if __name__ == '__main__':
     app.run_server(debug=False)
